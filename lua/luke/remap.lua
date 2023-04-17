@@ -35,6 +35,14 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 -- Copilot remappings
+vim.api.nvim_set_keymap('n', '<leader>g', ':Copilot panel<CR>', {noremap = true, silent = true})
+function _G.copilot_accept()
+  local fn = vim.fn
+  vim.api.nvim_feedkeys(fn['copilot#Accept'](), 'i', true)
+end
 
+vim.api.nvim_set_keymap('i', '<leader>j', ':lua copilot_accept()<CR>', {noremap = true, silent = true})
+vim.keymap.set('i', '<M-.>', '<Plug>(copilot-next)')
+vim.keymap.set('i', '<M-,>', '<Plug>(copilot-previous)')
 
 

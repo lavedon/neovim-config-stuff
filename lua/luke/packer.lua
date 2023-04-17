@@ -21,6 +21,8 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
   use('github/copilot.vim')
   use('preservim/nerdtree')
+  use('RishabhRD/popfix')
+  use('RishabhRD/nvim-cheat.sh')
   use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v2.x',
