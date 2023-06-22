@@ -1,2 +1,2 @@
 require("luke")
-print("Hello from root init")
+require("copy_buffer_plugin.init")

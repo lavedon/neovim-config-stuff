@@ -1,4 +1,4 @@
-vim.g.mapleader = " "
+vim.g.mapleader = "\\"
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -22,6 +22,14 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+--
+-- Dealing eith error messages
+vim.keymap.set("n", "<leader>e", "lua vim.diagnostic.open_float()<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>w", "lua vim.diagnostic.goto_prev()<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>r", "lua vim.diagnostic.goto_next()<CR>", {noremap = true, silent = true})
+
+
+-- Misc Navigation
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
@@ -45,4 +53,5 @@ vim.api.nvim_set_keymap('i', '<leader>j', ':lua copilot_accept()<CR>', {noremap 
 vim.keymap.set('i', '<M-.>', '<Plug>(copilot-next)')
 vim.keymap.set('i', '<M-,>', '<Plug>(copilot-previous)')
 
-
+--  My CopyBufferPlugin
+vim.keymap.set('n', '<leader>cb', ':CopyBufferToClipboard<CR>', {noremap = true, silent = true})
