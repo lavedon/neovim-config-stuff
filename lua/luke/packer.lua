@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
-  use('github/copilot.vim')
   use('preservim/nerdtree')
   use('RishabhRD/popfix')
   use('RishabhRD/nvim-cheat.sh')
@@ -43,4 +42,25 @@ return require('packer').startup(function(use)
   {'L3MON4D3/LuaSnip'},     -- Required
   }
 }
+use {
+  "zbirenbaum/copilot.lua",
+  cmd = "Copilot",
+  event = "InsertEnter",
+  config = function()
+    require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+    })
+
+  end,
+}
+use {
+  "zbirenbaum/copilot-cmp",
+  after = { "copilot.lua" },
+  config = function ()
+    require("copilot_cmp").setup()
+  end
+}
+
+
 end)

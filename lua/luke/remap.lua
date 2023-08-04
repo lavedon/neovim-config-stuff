@@ -24,9 +24,9 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 --
 -- Dealing eith error messages
-vim.keymap.set("n", "<leader>e", "lua vim.diagnostic.open_float()<CR>", {noremap = true, silent = true})
-vim.keymap.set("n", "<leader>w", "lua vim.diagnostic.goto_prev()<CR>", {noremap = true, silent = true})
-vim.keymap.set("n", "<leader>r", "lua vim.diagnostic.goto_next()<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>i", ":lua vim.diagnostic.open_float()<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>ij", ":lua vim.diagnostic.goto_prev()<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>n", ":lua vim.diagnostic.goto_next()<CR>", {noremap = true, silent = true})
 
 
 -- Misc Navigation
@@ -42,16 +42,6 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
--- Copilot remappings
-vim.api.nvim_set_keymap('n', '<leader>g', ':Copilot panel<CR>', {noremap = true, silent = true})
-function _G.copilot_accept()
-  local fn = vim.fn
-  vim.api.nvim_feedkeys(fn['copilot#Accept'](), 'i', true)
-end
-
-vim.api.nvim_set_keymap('i', '<leader>j', ':lua copilot_accept()<CR>', {noremap = true, silent = true})
-vim.keymap.set('i', '<M-.>', '<Plug>(copilot-next)')
-vim.keymap.set('i', '<M-,>', '<Plug>(copilot-previous)')
 
 --  My CopyBufferPlugin
 vim.keymap.set('n', '<leader>cb', ':CopyBufferToClipboard<CR>', {noremap = true, silent = true})
